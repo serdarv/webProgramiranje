@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+
+	<style type="text/css">
+		
+		.editForm label{
+			width: 100%;
+			text-align: center;
+		}
+
+    	.editForm input{
+
+    		border: 1px solid blue;
+    		width: 100%;
+    		margin-top: 25px;
+    		text-align: center;
+
+    	}
+
+    	.editForm textarea{
+
+    		border: 1px solid blue;
+    		width: 100%;
+
+    	}
+
+    	.editForm {
+    		padding: 25px;
+    		border: 2px solid blue;
+    		text-align: center;
+    		width: 100%;
+    	}
+
+    	.editForm button{
+    		margin-top: 25px;
+    		background: orange;
+    		border: 1px solid blue;
+    		font-weight: bold;
+    		color: white;
+
+    	}
+
+    #search {
+    float: right;
+    margin-top: 9px;
+    width: 250px;
+	}
+
+	.search {
+	    padding: 5px 0;
+	    width: 100%;
+	    height: 30px;
+	    position: relative;
+	    left: 10px;
+	    float: left;
+	    line-height: 22px;
+	}
+
+	    .search input {
+	        position: absolute;
+	        width: 0px;
+	        float: Left;
+	        margin-left: 210px;
+	        -webkit-transition: all 0.7s ease-in-out;
+	        -moz-transition: all 0.7s ease-in-out;
+	        -o-transition: all 0.7s ease-in-out;
+	        transition: all 0.7s ease-in-out;
+	        height: 30px;
+	        line-height: 18px;
+	        padding: 0 2px 0 2px;
+	        border-radius:1px;
+	    }
+
+	        .search:hover input, .search input:focus {
+	            width: 100%;
+	            margin-left: 0px;
+	        }
+
+	.btn {
+	    height: 30px;
+	    position: absolute;
+	    right: 0;
+	    top: 5px;
+	    border-radius:1px;
+	}
+
+	.center {
+            display: flex;
+            mlign-items: center;
+            justify-content: center;
+            flex-direction: row;
+        }
+
+	</style>
+</head>
+<body>
+	<div class="editForm" style="display: inline-block;" ng-form name="myForm">
+
+		<h5>Add new movie:</h5>
+
+		<span style="border:4px red solid;padding: 5px;color: red;" ng-show="an.showError">All fields are required!!</span>
+
+		<label>Name</label><br>
+		<input type="text" name="name" ng-model="an.newMovie.name"  ><br>
+		<label>Imbd id</label><br>
+		<input type="text" name="imbd_id" ng-model="an.newMovie.imbd_id"  ><br>
+		<label>Release date</label><br>
+		<input type="date" datetime="MM-dd-yyyy" name="release_date" ng-model="an.newMovie.release_date"  ><br>
+		<label>Runtime</label><br>
+		<input type="text" name="runtime" ng-model="an.newMovie.runtime"  ><br>
+
+		<label>Select genre</label>
+		<select ng-model="an.newMovie.genre_idgenre">
+			<option ng-repeat="genre in an.genres" value="{{genre.idgenre}}">{{genre.name}}</option>
+		</select>
+
+		<label>Select language</label>
+		<select ng-model="an.newMovie.language_idlanguage">
+			<option ng-repeat="lang in an.languages" value="{{lang.idlanguage}}">{{lang.name}}</option>
+		</select>
+
+		<label>Overview</label><br>
+		<textarea ng-model="an.newMovie.overview" name="overview"  ></textarea><br>
+		
+		<label>Select movie image</label><br>
+		<input type="file" fileread="an.newMovie.movie_image"><br>
+
+		<img src="{{an.newMovie.movie_image}}"><br>
+
+		<button ng-click="an.addNew()">Edit</button><br>
+	</div>
+
+	<h5 style="width: 100%;text-align: center;">Or search moviedb api:</h5>
+
+	<div class="container">
+		<div class="row">
+
+	        <div class="search">
+				<input type="text" class="form-control input-sm" maxlength="64" placeholder="Search" ng-model="an.searchterm" ng-change="an.searchChange()"/>
+				<button type="submit" class="btn btn-primary btn-sm">Search</button>
+			</div>
+		</div>
+	</div>
+
+	<div ng-repeat="m in an.searchMovies">
+    <h1>
+        <a ui-sref="article({id: m.id})">{{m.title}}</a>
+    </h1>
+
+    <div class="center">
+        <img ng-src="{{m['movie_image']}}" class="col-md-2">
+
+    <div  class="col-md-6" style="display: inline-block;">
+        <p>
+            <smmll style="font-size: 20dp;font-weight: bold;">Name: {{m['name']}}</smmll><br>
+            <smmll>IMDB_ID: {{m['imbd_id']}}</smmll><br>
+            <smmll>Release date: {{m['release_date']}}</smmll><br>
+            <smmll>Runtime: {{m['runtime']}}</smmll><br>
+            <smmll>Vote count: {{m['vote_count']}}</smmll><br>
+            <smmll>Vote average: {{m['vote_average']}}</smmll><br>
+            <smmll>Overview: {{m['overview']}}</smmll><br>
+            <button ng-click="an.addNewMovie($index)">Add movie to database</button>
+        </p>
+        
+    </div>
+    </div>
+    
+    
+    <hr>
+</div>
+
+</body>
+</html>

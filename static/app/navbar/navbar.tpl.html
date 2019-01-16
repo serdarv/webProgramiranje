@@ -1,0 +1,27 @@
+<!-- Meni preuzet iz primera: http://getbootstrap.com/docs/4.0/examples/starter-template/ -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" ui-sref="welcome">Rate movie</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false"
+        aria-label="Prikaži/sakrij meni">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" ui-sref-active="active">
+                <a class="nav-link" ui-sref="home">Home</a>
+            </li>
+            <li class="nav-item" ui-sref-active="active" ng-show="!nb.loggedIn">
+                <a class="nav-link" ui-sref="login">Login</a>
+            </li>
+            <li class="nav-item" ui-sref-active="active" ng-show="nb.admin">
+                <a class="nav-link" ui-sref="admin">Admin panel</a>
+            </li>
+            <li class="nav-item" ui-sref-active="active" ng-show="nb.admin">
+                <a class="nav-link" ui-sref="add-new">Add new movie</a>
+            </li>
+            <li class="nav-item" ng-show="nb.loggedIn">
+                <a class="nav-link" href="" ng-click="nb.logout()">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>

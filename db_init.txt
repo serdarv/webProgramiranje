@@ -1,0 +1,46 @@
+//genres initialization
+
+INSERT INTO `filmovidb`.`genre` (`idgenre`, `name`) VALUES ('1', 'Drama');
+INSERT INTO `filmovidb`.`genre` (`idgenre`, `name`) VALUES ('2', 'Action');
+INSERT INTO `filmovidb`.`genre` (`idgenre`, `name`) VALUES ('3', 'Comedy');
+INSERT INTO `filmovidb`.`genre` (`idgenre`, `name`) VALUES ('4', 'Crime');
+INSERT INTO `filmovidb`.`genre` (`idgenre`, `name`) VALUES ('5', 'Historical');
+INSERT INTO `filmovidb`.`genre` (`idgenre`, `name`) VALUES ('6', 'Horor');
+INSERT INTO `filmovidb`.`genre` (`idgenre`, `name`) VALUES ('7', 'Musical');
+INSERT INTO `filmovidb`.`genre` (`idgenre`, `name`) VALUES ('8', 'Science-fiction');
+INSERT INTO `filmovidb`.`genre` (`idgenre`, `name`) VALUES ('9', 'War');
+INSERT INTO `filmovidb`.`genre` (`idgenre`, `name`) VALUES ('10', 'Western');
+INSERT INTO `filmovidb`.`genre` (`idgenre`, `name`) VALUES ('11', 'Thriller');
+
+
+//language initialization
+
+INSERT INTO `filmovidb`.`language` (`idlanguage`, `name`, `code`) VALUES ('1', 'English', 'en');
+INSERT INTO `filmovidb`.`language` (`idlanguage`, `name`, `code`) VALUES ('2', 'Italian', 'it');
+INSERT INTO `filmovidb`.`language` (`idlanguage`, `name`, `code`) VALUES ('3', 'Spanish', 'es');
+INSERT INTO `filmovidb`.`language` (`idlanguage`, `name`, `code`) VALUES ('4', 'German', 'ge');
+INSERT INTO `filmovidb`.`language` (`idlanguage`, `name`, `code`) VALUES ('5', 'Français', 'fr');
+
+
+
+//movie init
+
+INSERT INTO `filmovidb`.`movie` (`idmovie`, `name`, `imbd_id`, `release_date`, `runtime`, `vote_count`, `vote_average`, `genre_idgenre`, `language_idlanguage`, `overview`) VALUES ('1', 'Fight Club', 'tt0137523', '1999-10-15', '139', '14907', '8.4', '1', '1','A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.');
+INSERT INTO `filmovidb`.`movie` (`idmovie`, `name`, `imbd_id`, `release_date`, `runtime`, `vote_count`, `vote_average`, `genre_idgenre`, `language_idlanguage`, `overview`) VALUES ('2', 'The Poseidon Adventure', 'tt0069113', '1972-12-01', '117', '366', '7.3', '2', '1', 'The Poseidon Adventure was one of the first Catastrophe films and began the Disaster Film genre. Director Neame tells the story of a group of people that must fight for their lives aboard a sinking ship. Based on the novel by Paul Gallico.');
+INSERT INTO `filmovidb`.`movie` (`idmovie`, `name`, `imbd_id`, `release_date`, `runtime`, `vote_count`, `vote_average`, `genre_idgenre`, `language_idlanguage`, `overview`) VALUES ('3', 'Dogville', 'tt0276919', '2003-05-19', '178', '1063', '7.8', '4', '1', 'A barren soundstage is stylishly utilized to create a minimalist small-town setting in which a mysterious woman named Grace hides from the criminals who pursue her. The town is two-faced and offers to harbor Grace as long as she can make it worth their effort, so Grace works hard under the employ of various townspeople to win their favor. Tensions flare, however, and Grace\'s status as a helpless outsider provokes vicious contempt and abuse from the citizens of Dogville.');
+INSERT INTO `filmovidb`.`movie` (`idmovie`, `name`, `imbd_id`, `release_date`, `runtime`, `vote_count`, `vote_average`, `genre_idgenre`, `language_idlanguage`, `overview`) VALUES ('4', 'Absolut', 'tt0442896', '2005-04-20', '94', '0', '0.0', '11', '5', 'Two guys against globalization want to plant a virus in the network of a finance corporation. On the day of the attack Alex has an accident and cannot remember anything.');
+INSERT INTO `filmovidb`.`movie` (`idmovie`, `name`, `imbd_id`, `release_date`, `runtime`, `vote_count`, `vote_average`, `genre_idgenre`, `language_idlanguage`, `overview`) VALUES ('5', 'Spider-Man', 'tt0145487', '2002-05-01', '121', '8881', '7.0', '2', '1', 'After being bitten by a genetically altered spider, nerdy high school student Peter Parker is endowed with amazing powers.');
+
+UPDATE `filmovidb`.`movie` SET `movie_image` = 'http://image.tmdb.org/t/p/w185//adw6Lq9FiC9zjYEpOqfq03ituwp.jpg' WHERE (`idmovie` = '1');
+UPDATE `filmovidb`.`movie` SET `movie_image` = 'http://image.tmdb.org/t/p/w185//o7mRqnYg3YJNXxHUWa0TeSzR84d.jpg' WHERE (`idmovie` = '2');
+UPDATE `filmovidb`.`movie` SET `movie_image` = 'http://image.tmdb.org/t/p/w185//g1xLrof2RVgtHBB4fLvR5Xr8l5x.jpg' WHERE (`idmovie` = '3');
+UPDATE `filmovidb`.`movie` SET `movie_image` = 'http://image.tmdb.org/t/p/w185//6YemisOilgHbBp6UtgoONHg8eJk.jpg' WHERE (`idmovie` = '4');
+UPDATE `filmovidb`.`movie` SET `movie_image` = 'http://image.tmdb.org/t/p/w185//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg' WHERE (`idmovie` = '5');
+
+
+
+//user init
+
+INSERT INTO `filmovidb`.`user` (`iduser`, `username`, `firstName`, `lastName`, `password`) VALUES ('1', 'vladimir', 'Vladimir', 'Serdar', 'bravo');
+INSERT INTO `filmovidb`.`user` (`iduser`, `username`, `firstName`, `lastName`, `password`) VALUES ('2', 'nikola', 'Nikola', 'Nikolic', 'acer');
+INSERT INTO `filmovidb`.`user` (`iduser`, `username`, `firstName`, `lastName`, `password`) VALUES ('3', 'milan', 'Milan', 'Markovic', 'milan123');
