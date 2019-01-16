@@ -62,7 +62,7 @@
                     templateUrl: 'app/welcome_page.html'
                 }
             }
-        })..state('add-new', {
+        }).state('add-new', {
             parent: 'app',
             url: '/add-new-movie',
             views: {
